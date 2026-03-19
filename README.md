@@ -1,35 +1,37 @@
-# Todo List App
+# Color Picker
 
-A simple, clean todo list application built with vanilla HTML, CSS, and JavaScript.
+A simple, elegant color picker web application built with vanilla HTML, CSS, and JavaScript.
 
 ## Features
 
-- ✅ Add new todo items
-- ✅ Mark items as complete/incomplete
-- ✅ Delete items
-- ✅ Local storage persistence (todos survive page reloads)
-- ✅ Responsive design
-- ✅ Clean, modern UI
+- **Interactive Color Gradient**: Click anywhere on the color gradient canvas to select a color
+- **Multiple Color Formats**: View selected color in HEX, RGB, and HSL formats
+- **Clipboard Integration**: Click any color value to copy it to your clipboard
+- **Live Preview**: Real-time color swatch preview of your selection
+- **Responsive Design**: Works seamlessly on desktop and mobile devices
 
 ## Usage
 
-Simply open `index.html` in your browser. No build process or dependencies required.
+Simply open `index.html` in any modern web browser. No build process or dependencies required.
 
-- **Add a todo:** Type in the input field and press Enter or click "Add"
-- **Complete a todo:** Click the checkbox next to the item
-- **Delete a todo:** Click the "Delete" button
-
-All todos are automatically saved to browser localStorage and will persist across sessions.
-
-## Technical Details
-
-- **Data Model:** Each todo has `{id, text, completed}` structure
-- **Storage:** localStorage key `todos`
-- **No frameworks:** Pure vanilla JavaScript ES6+
-- **Browser Support:** Modern browsers with localStorage support
+1. Click anywhere on the color gradient to select a color
+2. The preview swatch and color values update instantly
+3. Click on any color format (HEX, RGB, or HSL) to copy it to your clipboard
+4. A notification confirms successful copy
 
 ## Files
 
-- `index.html` - Application structure
-- `styles.css` - Styling and responsive design
-- `app.js` - Todo logic and localStorage integration
+- `index.html` - Main HTML structure
+- `styles.css` - Styling and responsive layout
+- `app.js` - Color picker logic and interactivity
+
+## Browser Support
+
+Works in all modern browsers that support:
+- HTML5 Canvas
+- ES6 Classes
+- Clipboard API (with fallback for older browsers)
+
+## License
+
+MIT

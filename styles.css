@@ -16,135 +16,141 @@ body {
 
 .container {
     background: white;
-    border-radius: 12px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-    width: 100%;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     max-width: 500px;
-    padding: 30px;
+    width: 100%;
 }
 
 h1 {
-    color: #333;
-    margin-bottom: 25px;
     text-align: center;
+    color: #333;
+    margin-bottom: 30px;
     font-size: 28px;
 }
 
-.input-section {
+.picker-area {
+    margin-bottom: 30px;
+}
+
+#colorCanvas {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    cursor: crosshair;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: block;
+}
+
+.color-info {
     display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
+    gap: 20px;
+    align-items: stretch;
 }
 
-#todoInput {
-    flex: 1;
-    padding: 12px 16px;
+.preview-swatch {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    flex-shrink: 0;
+    background-color: #ffffff;
     border: 2px solid #e0e0e0;
-    border-radius: 8px;
-    font-size: 16px;
-    transition: border-color 0.3s;
 }
 
-#todoInput:focus {
-    outline: none;
-    border-color: #667eea;
+.color-values {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
-#addBtn {
-    padding: 12px 24px;
-    background: #667eea;
-    color: white;
-    border: none;
+.color-value {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    background: #f5f5f5;
     border-radius: 8px;
-    font-size: 16px;
-    font-weight: 600;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: all 0.2s ease;
+    position: relative;
 }
 
-#addBtn:hover {
-    background: #5568d3;
+.color-value:hover {
+    background: #e8e8e8;
+    transform: translateX(2px);
 }
 
-#addBtn:active {
+.color-value:active {
     transform: scale(0.98);
 }
 
-.todo-list {
-    list-style: none;
-    margin-bottom: 20px;
+.color-value .label {
+    font-weight: 600;
+    color: #666;
+    font-size: 14px;
+    min-width: 45px;
 }
 
-.todo-item {
-    display: flex;
-    align-items: center;
-    padding: 14px 16px;
-    background: #f8f9fa;
-    border-radius: 8px;
-    margin-bottom: 8px;
-    transition: all 0.3s;
-}
-
-.todo-item:hover {
-    background: #e9ecef;
-}
-
-.todo-item.completed {
-    opacity: 0.6;
-}
-
-.todo-item.completed .todo-text {
-    text-decoration: line-through;
-    color: #6c757d;
-}
-
-.todo-checkbox {
-    width: 20px;
-    height: 20px;
-    margin-right: 12px;
-    cursor: pointer;
-    accent-color: #667eea;
-}
-
-.todo-text {
-    flex: 1;
-    font-size: 16px;
+.color-value .value {
+    font-family: 'Courier New', monospace;
     color: #333;
+    font-size: 14px;
+    flex: 1;
 }
 
-.delete-btn {
-    background: #dc3545;
+.color-value .copy-hint {
+    font-size: 11px;
+    color: #999;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.color-value:hover .copy-hint {
+    opacity: 1;
+}
+
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #4caf50;
     color: white;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 6px;
+    padding: 12px 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.3s ease;
+    pointer-events: none;
     font-size: 14px;
-    cursor: pointer;
-    transition: background 0.3s;
+    font-weight: 500;
 }
 
-.delete-btn:hover {
-    background: #c82333;
+.notification.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.stats {
-    text-align: center;
-    color: #6c757d;
-    font-size: 14px;
-    padding-top: 10px;
-    border-top: 1px solid #e0e0e0;
-}
-
-@media (max-width: 480px) {
+@media (max-width: 500px) {
     .container {
-        padding: 20px;
+        padding: 24px;
     }
-
+    
     h1 {
         font-size: 24px;
+        margin-bottom: 20px;
     }
-
-    #todoInput, #addBtn {
-        font-size: 14px;
+    
+    .color-info {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .preview-swatch {
+        width: 100%;
+        height: 60px;
     }
 }
