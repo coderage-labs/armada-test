@@ -3,30 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo List</title>
+    <title>Color Picker</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>📝 My Todos</h1>
+        <h1>Color Picker</h1>
         
-        <div class="input-section">
-            <input 
-                type="text" 
-                id="todoInput" 
-                placeholder="What needs to be done?" 
-                autocomplete="off"
-            >
-            <button id="addBtn">Add</button>
+        <div class="picker-area">
+            <canvas id="colorCanvas" width="400" height="300"></canvas>
         </div>
-
-        <ul id="todoList" class="todo-list"></ul>
-
-        <div class="stats">
-            <span id="todoCount">0 items</span>
+        
+        <div class="color-info">
+            <div class="preview-swatch" id="previewSwatch"></div>
+            
+            <div class="color-values">
+                <div class="color-value" id="hexValue" data-format="hex">
+                    <span class="label">HEX:</span>
+                    <span class="value">#ffffff</span>
+                    <span class="copy-hint">Click to copy</span>
+                </div>
+                
+                <div class="color-value" id="rgbValue" data-format="rgb">
+                    <span class="label">RGB:</span>
+                    <span class="value">rgb(255, 255, 255)</span>
+                    <span class="copy-hint">Click to copy</span>
+                </div>
+                
+                <div class="color-value" id="hslValue" data-format="hsl">
+                    <span class="label">HSL:</span>
+                    <span class="value">hsl(0, 0%, 100%)</span>
+                    <span class="copy-hint">Click to copy</span>
+                </div>
+            </div>
         </div>
+        
+        <div class="notification" id="notification">Copied to clipboard!</div>
     </div>
-
+    
     <script src="app.js"></script>
 </body>
 </html>
